@@ -39,13 +39,39 @@ This project demonstrates web scraping, API integration, and text processing usi
    - Prints the headers of the first 5 articles in the "Opinion" section.
    - Downloads the cover images of the articles (if available).
 
-## Testing In Order to Test the Code in BrowserStack Build format
-1. Run the script:
+## Objectives Achieved by `web.py`
+Running `web.py` accomplishes 4 out of the 5 objectives:
+
+1. **Visit the website El País, a Spanish news outlet:**
+   - Ensures that the website's text is displayed in Spanish.
+
+2. **Scrape Articles from the Opinion Section:**
+   - Navigates to the Opinion section of the website.
+   - Fetches the first five articles in this section.
+   - Prints the title and content of each article in Spanish.
+   - If available, downloads and saves the cover image of each article to your local machine.
+
+3. **Translate Article Headers:**
+   - Uses a translation API (e.g., Google Translate API or Rapid Translate Multi Traduction API).
+   - Translates the title of each article to English and prints the translated headers.
+
+4. **Analyze Translated Headers:**
+   - Identifies repeated words (occurring more than twice) across all translated headers combined.
+   - Prints each repeated word along with the count of its occurrences.
+
+## Testing in BrowserStack
+
+1. To test cross-browser functionality in BrowserStack:
    ```bash
    python test.py
    ```
 
-   It starts parallel tests 5, in the same build.
+   The `test.py` script accomplishes the 5th objective:
+
+   - **Cross-Browser Testing:**
+     - Runs 5 parallel threads, testing a combination of browsers, operating systems, and devices using BrowserStack.
+
+     Final Build - https://automate.browserstack.com/dashboard/v2/builds/46b961b19df26e66aa71904f76f46fbee3796f65
 
 ## Assignment Breakdown
 
@@ -65,6 +91,3 @@ This project addresses the following requirements:
 #### Cross-Browser Testing:
 - Executes the solution locally and verifies functionality.
 - Runs the solution on BrowserStack across 5 parallel threads, testing a combination of desktop and mobile browsers.
-
-### Submission
-Upload the completed project source code to GitHub and share the repository link.
