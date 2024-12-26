@@ -85,17 +85,18 @@ browsers = [
     },
 ]
 
-
 def test_browser(browser_capabilities):
     desired_cap = {
         "browserName": browser_capabilities["browserName"],
         "bstack:options": browser_capabilities["bstack:options"]
     }
 
+    # Configure options for Chrome (or other browsers if needed)
     options = Options()
     options.add_argument("--headless")  # Optional: run in headless mode
     options.set_capability('bstack:options', browser_capabilities["bstack:options"])
 
+    # Initialize the WebDriver for BrowserStack
     driver = webdriver.Remote(
         command_executor=f"https://{username}:{access_key}@hub-cloud.browserstack.com/wd/hub",
         options=options
@@ -105,7 +106,7 @@ def test_browser(browser_capabilities):
         driver.get("https://elpais.com/opinion/")
         driver.implicitly_wait(10)
 
-
+        # Fetch the first 5 articles
         articles = driver.find_elements(By.CSS_SELECTOR, "article.c")[:5]
         print(f"Scraping first 5 articles on {browser_capabilities['browserName']}...")
 

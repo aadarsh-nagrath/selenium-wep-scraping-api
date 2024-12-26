@@ -39,6 +39,14 @@ This project demonstrates web scraping, API integration, and text processing usi
    - Prints the headers of the first 5 articles in the "Opinion" section.
    - Downloads the cover images of the articles (if available).
 
+## Testing In Order to Test the Code in BrowserStack Build format
+1. Run the script:
+   ```bash
+   python test.py
+   ```
+
+   It starts parallel tests 5, in the same build.
+
 ## Assignment Breakdown
 
 ### 1. Technical Assignment: Run Selenium Test on BrowserStack
