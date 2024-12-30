@@ -29,21 +29,25 @@ def save_image(url, filename):
         with open(filename, 'wb') as f:
             f.write(response.content)
 
-# Scrape articles
+
 def scrape_articles(driver):
     driver.get("https://elpais.com/opinion/")
     driver.implicitly_wait(10)
+    try:
+        agree_button = driver.find_element(By.ID, "didomi-notice-agree-button")
+        agree_button.click()
+        print("Clicked the agreement button.")
+    except Exception as e:
+        print(f"Could not find or click the agreement button: {e}")
 
     articles = driver.find_elements(By.CSS_SELECTOR, "article.c")[:5]  # First 5
     data = []
 
     for i, article in enumerate(articles):
         try:
-            # Extract the title
             title_element = article.find_element(By.CSS_SELECTOR, "h2.c_t a")
             title = title_element.text
 
-            # Extract the content
             content_element = article.find_element(By.CSS_SELECTOR, "p.c_d")
             content = content_element.text
 
